@@ -24,12 +24,16 @@ class DefaultController extends Controller
             $form->handleRequest($request);
 
             dump('form->isSubmitted(): '. $form->isSubmitted());
-            dump('form->has(not_submit): '.$form->has('not_submit'));
-            dump('form->get(not_submit)->isClicked: '.$form->get('not_submit')->isClicked());
+            dump('form->has(get_away_from_form): '.$form->has('get_away_from_form'));
+            dump('form->get(get_away_from_form)->isClicked: '.$form->get('get_away_from_form')->isClicked());
 
             $isClicked = null;
-            if($form->isSubmitted() && $form->has('not_submit')){
-                $isClicked = 'Value for isClicked is ' . $form->get('not_submit')->isClicked();
+            if($form->isSubmitted() && $form->has('get_away_from_form')){
+                if($form->get('get_away_from_form')->isClicked() == 1){
+                    $isClicked = 'It works as expected: $form->get(get_away_from_form)->isClicked() = '.$form->get('get_away_from_form')->isClicked();
+                } else {
+                    $isClicked = 'It DOESN\'T work as expected: $form->get(get_away_from_form)->isClicked() = '.$form->get('get_away_from_form')->isClicked();
+                }
 
             }
 

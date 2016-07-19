@@ -24,8 +24,8 @@ class FormType extends AbstractType{
 	$builder
 	->add('field1',EmailType::class, array('label'=>'Form Field 1'))
 	->add('submit',SubmitType::class,array('label'=>'Submit Form'))
-  ->add('not_submit',SubmitType::class,array(
-    'label'=>'Not Submit Form',
+  ->add('get_away_from_form',SubmitType::class,array(
+    'label'=>'Get away from form',
     'attr'=>array(
     'onclick'=>'{
       //IF THE USER CLICK THE NOT_SUBMIT BUTTON THE REQUIRED FIELD ARE DISABLED BEFORE THE SUBMIT HAPPENS
